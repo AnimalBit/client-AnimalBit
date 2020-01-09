@@ -6,3 +6,8 @@
 html, body {
   height: 100%;
 }
+
+#bg-gradient{
+	background: rgb(238,174,202);
+	background: radial-gradient(circle, rgba(238,174,202,0.35) 0%, rgba(233,148,164,0.35) 100%);
+}
