@@ -6,7 +6,7 @@ function gameStart() {
         return new Promise(function(resolve, reject){
             $.ajax({
                 method: 'GET',
-                url:`http://localhost:3000/users/start`,
+                url:`http://localhost:3000/users/game`,
                 headers: {
                     access_token : token
                 }
@@ -36,6 +36,21 @@ function getLeaderboard() {
             reject(err)
         })
     })
-   
+}
 
+
+function submitAnswer(scoreArray) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            method: 'POST',
+            url: 'http://localhost:3000/users/game',
+            data : scoreArray,
+        })
+        .done(matchScore => {
+            resolve(matchScore)
+        })
+        .fail(err => {
+            reject(err)
+        })
+    })
 }
