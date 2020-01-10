@@ -7,8 +7,8 @@ function onSignIn(googleUser) {
           google_token : id_token
       }
     })
-    .done( access_token => {
-        localStorage.setItem('token', access_token.token)
+    .done(data => {
+        localStorage.setItem('token', data.access_token)
     })
     .fail ( err => {
         console.log(err)
