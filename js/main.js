@@ -7,8 +7,8 @@ function onSignIn(googleUser) {
           google_token : id_token
       }
     })
-    .done( access_token => {
-        localStorage.setItem('token', access_token.token)
+    .done(data => {
+        localStorage.setItem('token', data.access_token)
     })
     .fail ( err => {
         console.log(err)
@@ -17,12 +17,26 @@ function onSignIn(googleUser) {
   }
 
   $(document).ready(function(){
-      getTest()
-        .then(result => {
-            console.log(result)
+    
+    // leaderboard tampil public, no need login, automatically ke display
+    getLeaderboard()
+        .then(userMatches => {
+            let totalAnswer
+            userMatches.forEach( match => {
+                totalAnswer += match.correctAnswers 
+                // lanjut append ke div leaderboard 
+            })
         })
         .catch(err => {
             console.log(err)
         })
+    // to start the game, triggered by button start, hrs login & authenticated
+    //   gameStart()
+    //     .then(result => {
+    //         console.log(result)
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
     
   });
