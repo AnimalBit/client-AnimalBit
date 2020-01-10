@@ -31,3 +31,8 @@ html, body {
   
   vertical-align: middle;
 }
+
+.scrolling-card {
+  max-height: 300px;
+  overflow-y: auto;
+}
