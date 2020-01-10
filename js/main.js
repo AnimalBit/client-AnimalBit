@@ -28,7 +28,11 @@ function onSignIn(googleUser) {
                 })
             })
             let finalLeaderboard = userMatchesTotal.sort((a, b)=> b.totalAnswer-a.totalAnswer)
-            // tinggal append ke div tampilan leaderboard
+            finalLeaderboard.forEach(user => {
+                $('#leaderboards-card').append(
+                    `<p><span class="text-leaderboardName">${user.name}<span class="text-leaderboardScore"> : ${user.totalAnswer * 10}</span></p>`
+                )
+            })
         })
         .catch(err => {
             console.log(err)
