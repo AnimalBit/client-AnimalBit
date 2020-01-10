@@ -36,3 +36,7 @@ html, body {
   max-height: 300px;
   overflow-y: auto;
 }
+
+/* #gameContent, #post-gamePage {
+  display: none
+} */

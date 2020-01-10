@@ -1,4 +1,5 @@
 function onSignIn(googleUser) {
+    
     var id_token = googleUser.getAuthResponse().id_token
     $.ajax({
       method: ('POST'),
@@ -8,19 +9,12 @@ function onSignIn(googleUser) {
       }
     })
     .done(data => {
+        console.log(data, '<<')
         localStorage.setItem('token', data.access_token)
-    })
-    .fail ( err => {
-        console.log(err)
-    })
-
-  }
-
-  $(document).ready(function(){
-    
-    var gameQuestions
-    // leaderboard tampil public, no need login, automatically ke display
-    getLeaderboard()
+        console.log($("#gameContent") , "selector jquery")
+        $("#loginPage").hide()
+        $("#gameContent").show()
+        getLeaderboard()
         .then(userMatches => {
             let totalAnswer = 0
             let name
@@ -41,7 +35,21 @@ function onSignIn(googleUser) {
         .catch(err => {
             console.log(err)
         })
+        
+    })
+    .fail ( err => {
+        console.log(err)
+    })
 
+  }
+
+  $(document).ready(function(){
+    
+    var gameQuestions
+    // leaderboard tampil public, no need login, automatically ke display
+    
+    $("#gameContent").hide()
+    $("#post-gamePage").hide()
 
     // to start the game, triggered by button start, hrs login & authenticated
     $("#buttonstart").click(function(event){
@@ -71,6 +79,10 @@ function onSignIn(googleUser) {
                 console.log(err)
             })
         }
+    })
+
+    $("#loginbutton").click(function(event){
+        
     })
             
   });
