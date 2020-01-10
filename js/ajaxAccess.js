@@ -6,7 +6,7 @@ function gameStart() {
         return new Promise(function(resolve, reject){
             $.ajax({
                 method: 'GET',
-                url:`http://localhost:3000/users/start`,
+                url:`http://localhost:3000/users/game`,
                 headers: {
                     access_token : token
                 }
@@ -19,4 +19,38 @@ function gameStart() {
             })
         })
     }
+}
+
+
+function getLeaderboard() {
+
+    return new Promise((resolve, reject) =>  {
+        $.ajax({
+            method: 'GET',
+            url : 'http://localhost:3000/users/'
+        })
+        .done(data => {
+            resolve(data)
+        })
+        .fail(err => {
+            reject(err)
+        })
+    })
+}
+
+
+function submitAnswer(userChoices, gameQuestions) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            method: 'POST',
+            url: 'http://localhost:3000/users/game',
+            data :{ userChoices: userChoices, gameQuestions: gameQuestions}
+        })
+        .done(matchScore => {
+            resolve(matchScore)
+        })
+        .fail(err => {
+            reject(err)
+        })
+    })
 }

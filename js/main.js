@@ -17,13 +17,60 @@ function onSignIn(googleUser) {
   }
 
   $(document).ready(function(){
-    // to start the game, triggered by button start, hrs login & authenticated
-    //   gameStart()
-    //     .then(result => {
-    //         console.log(result)
-    //     })
-    //     .catch(err => {
-    //         console.log(err)
-    //     })
     
+    var gameQuestions
+    // leaderboard tampil public, no need login, automatically ke display
+    getLeaderboard()
+        .then(userMatches => {
+            let totalAnswer = 0
+            let name
+            let userMatchesTotal = []
+            userMatches.forEach( user => {
+                name = user.fullname
+                user.matches.forEach( matchData => {
+                    totalAnswer += matchData.correctAnswers
+                })
+                userMatchesTotal.push({
+                    name : name,
+                    totalAnswer : totalAnswer
+                })
+            })
+            let finalLeaderboard = userMatchesTotal.sort((a, b)=> b.totalAnswer-a.totalAnswer)
+            // tinggal append ke div tampilan leaderboard
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+
+    // to start the game, triggered by button start, hrs login & authenticated
+    $("#buttonstart").click(function(event){
+        gameStart()
+        .then(gameData => {
+            // tinggal append ke tampilan
+            $("#idnya slot gambar").append("<img src=`${gameData.image}`>") 
+            gameQuestions = gameData
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    })
+      
+    // submitAnswer, triggered setiap kali user pilih jawaban 
+    $('#idJawaban di formnya').click(function(event){
+        let answers = []
+        let choice = $('#idJawaban')
+        answers.push(choice, gameQuestions)
+        if (answers.length === 10) {
+            submitAnswer(answers)
+            .then( result => {
+                console.log(result)
+                // hasil score, di append ke div tampilan akhir
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+    })
+            
   });

@@ -5,9 +5,10 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<meta name="google-signin-client_id"
-			content="923519912235-s6hfk898jvn34obi2c5c4dftb2rqbjg2.apps.googleusercontent.com">
+		<meta name="google-signin-client_id" content="923519912235-s6hfk898jvn34obi2c5c4dftb2rqbjg2.apps.googleusercontent.com">
 
+
+		<link href="https://fonts.googleapis.com/css?family=Acme|Indie+Flower&display=swap" rel="stylesheet">
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
@@ -18,28 +19,82 @@
 
 	<body id="bg-gradient">
 
-		<div id="gameContent" class="container">
+		<!-- LOGIN/REGISTER -->
+		<div id="loginPage" class="container">
+			<div class="row justify-content-center align-items-center">
+				<div class="card p-3 ">
+					<h3>ANIMAL BIT</h3>
+					<p>To Start the Game, please login</p>
+					<br>
+
+
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Login</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Register</a>
+						</li>
+					</ul>
+					<div class="tab-content " id="myTabContent">
+						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+							<br>
+							<!-- LOGIN TABS -->
+							<form>
+								<div class="form-group">
+									<label for="input-emailLogin">Email address</label>
+									<input required type="email" class="form-control-lg form-control " id="input-emailLogin" aria-describedby="emailHelp">
+								</div>
+								<div class="form-group">
+									<label for="input-passwordLogin">Password</label>
+									<input required type="password" class="form-control-lg form-control" id="input-passwordLogin">
+								</div><br>
+								<button type="submit" class="btn btn-block btn-lg btn-outline-info">Log in</button>
+							</form>
+							
+
+						</div>
+						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+							<br>
+							<!-- REGISTER PAGES -->
+							<form>
+								<div class="form-group">
+									<label for="input-emailRegister">Email address</label>
+									<input required type="email" class="form-control-lg form-control " id="input-emailRegister" aria-describedby="emailHelp">
+								</div>
+								<div class="form-group">
+									<label for="input-passwordRegister">Password</label>
+									<input required type="password" class="form-control-lg form-control" id="input-passwordRegister">
+								</div><br>
+								<button type="submit" class="btn btn-block btn-lg btn-outline-info">Register</button>
+							</form>
+						</div>
+					</div>
+
+					<!-- Google Auth -->
+					<br>
+					<hr class="my-2">
+					<br>
+					<p>Or Login using your existing Google Account:</p>
+					<div class="g-signin2" data-onsuccess="onSignIn"></div>
+					<!-- <div class="btn btn-outline-secondary" onclick="signOut()">Logout</div> -->
+				</div>
+			</div>
+		</div>
+
+		<!-- IN- GAME CONTENT -->
+		<div  id="gameContent" class="container">
 
 			<div class="row justify-content-center align-items-center">
-
-
 				<div class="card p-3">
 					<div class="card-body">
 						<div class="row">
 
-							<div class="col-sm-9">
-								<img id="img-loadedImage" src="./img/animal-placeholder.png" class="rounded img-fluid">
+							<div class="img-wrapper col-sm-9">
+								<img id="img-loadedImage" src="http://placegoat.com/1000/600" class="rounded img-fluid">
 							</div>
 
 							<div class="col-sm-3">
-								<!-- INI GA DITAMPILIN KALO SUDAH LOGIN -->
-								<div class="card">
-									<div id="card" class="card-body text-left">
-										<div class="g-signin2" data-onsuccess="onSignIn"></div> <br>
-										<div class="btn btn-outline-secondary" onclick="signOut()">Logout</div>
-									</div>
-								</div>
-								<br>
 								<div class="card">
 									<div class="card-body">
 										<h5>Name</h5>
@@ -50,11 +105,28 @@
 								</div>
 
 								<br>
-								<div class="card">
+								<div class="card scrolling-card">
 									<div class="card-body">
 										<h5>Leaderboard</h5>
 										<hr class="my-2">
 										<!-- LOOP Leaderboards Score Here -->
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
 										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
 									</div>
 								</div>
@@ -65,19 +137,19 @@
 						<br>
 						<div class="row">
 							<div class="col-sm-6">
-								<button class="btn btn-lg btn-block btn-outline-primary">cat</button>
+								<button id="btn-userAnswer-cat" class="btn btn-lg btn-block btn-outline-primary">a Cat</button>
 							</div>
 							<div class="col-sm-6">
-								<button class="btn btn-lg btn-block btn-outline-primary">cat</button>
+								<button id="btn-userAnswer-goat" class="btn btn-lg btn-block btn-outline-primary">a Goat</button>
 							</div>
 						</div>
 						<br>
 						<div class="row">
 							<div class="col-sm-6">
-								<button class="btn btn-lg btn-block btn-outline-primary">cat</button>
+								<button id="btn-userAnswer-dog" class="btn btn-lg btn-block btn-outline-primary">a Dog</button>
 							</div>
 							<div class="col-sm-6">
-								<button class="btn btn-lg btn-block btn-outline-primary">cat</button>
+								<button id="btn-userAnswer-kosasih" class="btn btn-lg btn-block btn-outline-primary">kosasih</button>
 							</div>
 						</div>
 
@@ -89,7 +161,109 @@
 			</div>
 		</div>
 
-		<!-- Google OAuth2 -->
+		<!-- POST-GAME CONTENT -->
+		<div id="post-gamePage" class="container">
+			<div class="row justify-content-center align-items-center">
+				<div class="card p-3 text-center">
+					<h4>Here's Your Result</h4>
+					<hr id="my-2">
+					<div id="wrapper-kumpulan-result" class="" style="margin-left:0 auto">
+						<!-- LOOP POSTGAME GOES HERE -->
+							<!-- ROW 1 -->
+						<div class="row align-items-center justify-content-center">
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-success">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-danger">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-success">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-danger">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-success">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+						
+						</div>
+						<br>
+							<!-- ROW 2 -->
+						<div class="row align-items-center justify-content-center">
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-success">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-danger">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-success">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-success">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-success">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- END HERE -->
+					</div>
+					<br>
+
+					<hr class="my-2">
+					<p>Thank you <span id="text-postGame-name">#NAME</span> for playing</p>
+					<p>You got: <span id="text-postGame-correctCount">#CORRECT</span> out of 10 pictures Correct</p>
+					<hr class="my-2">
+					<p>Your Score:</p>
+					<h3 id="text-postGame-score">#SCORE</h3>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- JS SECTIONS -->
+		<!-- JS Google OAuth2 -->
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<script>
 			function signOut() {
@@ -100,7 +274,7 @@
 			}
 		</script>
 
-		<!-- bootstrap's js -->
+		<!-- JS Bootstrap+Jquery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
 			integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
@@ -108,8 +282,12 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 			integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 			crossorigin="anonymous"></script>
-		<script src="/js/ajaxAccess.js"></script>
-		<script src="/js/main.js"></script>
+
+
+    <!-- JS Selfmade -->
+		<script src="/js/ajaxAccess.js"></script>		
+		<script src="/js/main.js"></script>	
+
 	</body>
 
 </html>

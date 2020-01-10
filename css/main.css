@@ -1,3 +1,9 @@
+body{
+  /* font-family: "Oswald", Helvetica, Arial, sans-serif; */
+  /* font-family: 'Indie Flower', cursive; */
+  font-family: 'Acme', sans-serif !important;
+
+}
 .container, .row {
   height: 100%;
   min-height: 100%;
@@ -7,7 +13,26 @@ html, body {
   height: 100%;
 }
 
-#bg-gradient{
-	background: rgb(238,174,202);
-	background: radial-gradient(circle, rgba(238,174,202,0.35) 0%, rgba(233,148,164,0.35) 100%);
+.img-wrapper {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.img-wrapper img {
+  transform:scale(8);
+}
+
+.img-wrapper img {
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  
+  vertical-align: middle;
+}
+
+.scrolling-card {
+  max-height: 300px;
+  overflow-y: auto;
 }
