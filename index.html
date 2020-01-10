@@ -18,7 +18,9 @@
 	</head>
 
 	<body id="bg-gradient">
-
+			<div id="logoutPage" class="container">
+					<a href="#" onclick="signOut();">Sign out</a>
+			</div>
 		<!-- LOGIN/REGISTER -->
 		<div id="loginPage" class="container">
 			<div class="row justify-content-center align-items-center">
@@ -26,7 +28,7 @@
 					<h3>ANIMAL BIT</h3>
 					<p>To Start the Game, please login</p>
 					<br>
-
+					
 
 					<ul class="nav nav-tabs" id="myTab" role="tablist">
 						<li class="nav-item">
@@ -49,7 +51,7 @@
 									<label for="input-passwordLogin">Password</label>
 									<input required type="password" class="form-control-lg form-control" id="input-passwordLogin">
 								</div><br>
-								<button type="submit" class="btn btn-block btn-lg btn-outline-info">Log in</button>
+								<button id="loginbutton" type="submit" class="btn btn-block btn-lg btn-outline-info">Log in</button>
 							</form>
 							
 
@@ -270,6 +272,15 @@
 		<script src="/js/ajaxAccess.js"></script>		
 		<script src="/js/main.js"></script>	
 
+		<script>
+				function signOut() {
+				  var auth2 = gapi.auth2.getAuthInstance();
+				  auth2.signOut().then(function () {
+					console.log('User signed out.');
+					localStorage.removeItem('token')
+				  });
+				}
+			  </script>
 	</body>
 
 </html>

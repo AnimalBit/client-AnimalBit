@@ -1,4 +1,5 @@
 function onSignIn(googleUser) {
+    
     var id_token = googleUser.getAuthResponse().id_token
     $.ajax({
       method: ('POST'),
@@ -9,18 +10,9 @@ function onSignIn(googleUser) {
     })
     .done(data => {
         localStorage.setItem('token', data.access_token)
-    })
-    .fail ( err => {
-        console.log(err)
-    })
-
-  }
-
-  $(document).ready(function(){
-    
-    var gameQuestions
-    // leaderboard tampil public, no need login, automatically ke display
-    getLeaderboard()
+        $("#loginPage").hide()
+        $("#gameContent").show()
+        getLeaderboard()
         .then(userMatches => {
             let totalAnswer = 0
             let name
@@ -45,7 +37,21 @@ function onSignIn(googleUser) {
         .catch(err => {
             console.log(err)
         })
+        
+    })
+    .fail ( err => {
+        console.log(err)
+    })
 
+  }
+
+  $(document).ready(function(){
+    
+    var gameQuestions
+    // leaderboard tampil public, no need login, automatically ke display
+    
+    $("#gameContent").hide()
+    $("#post-gamePage").hide()
 
     // to start the game, triggered by button start, hrs login & authenticated
     $("#buttonstart").click(function(event){
@@ -69,69 +75,16 @@ function onSignIn(googleUser) {
             submitAnswer(answers)
             .then( result => {
                 console.log(result)
-                for (let i = 0; i < 5; i++) {
-                    if (result.stats[i] === true) {
-                        $('#postgame-row-1').append(
-                            `
-                            <div class="col-xl-2" id="img-gameQuestion${i+1}">
-                                <div class="card">
-                                    <div class="card-body postGame-imgWrapper bg-success">
-                                        <img src="${result.userQuestions[i].image}" width="100" height="100" class="img-fluid rounded img-postgame">
-                                        <p>Correct Answer: ${result.userQuestions[i].answer}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            `
-                        )
-                    } else {
-                        $('#postgame-row-1').append(
-                            `
-                            <div class="col-xl-2" id="img-gameQuestion${i+1}">
-                                <div class="card">
-                                    <div class="card-body postGame-imgWrapper bg-danger">
-                                        <img src="${result.userQuestions[i].image}" width="100" height="100" class="img-fluid rounded img-postgame">
-                                        <p>Correct Answer: ${result.userQuestions[i].answer}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            `
-                        ) 
-                    }
-                }
-                for (let i = 5; i < 10; i++) {
-                    if (result.stats[i] === true) {
-                        $('#postgame-row-2').append(
-                            `
-                            <div class="col-xl-2" id="img-gameQuestion${i+1}">
-                                <div class="card">
-                                    <div class="card-body postGame-imgWrapper bg-success">
-                                        <img src="${result.userQuestions[i].image}" width="100" height="100" class="img-fluid rounded img-postgame">
-                                        <p>Correct Answer: ${result.userQuestions[i].answer}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            `
-                        )
-                    } else {
-                        $('#postgame-row-2').append(
-                            `
-                            <div class="col-xl-2" id="img-gameQuestion${i+1}">
-                                <div class="card">
-                                    <div class="card-body postGame-imgWrapper bg-danger">
-                                        <img src="${result.userQuestions[i].image}" width="100" height="100" class="img-fluid rounded img-postgame">
-                                        <p>Correct Answer: ${result.userQuestions[i].answer}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            `
-                        )
-                    }
-                }
+                // hasil score, di append ke div tampilan akhir
             })
             .catch(err => {
                 console.log(err)
             })
         }
     })
-    
+
+    $("#loginbutton").click(function(event){
+        
+    })
+            
   });
