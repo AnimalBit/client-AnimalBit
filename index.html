@@ -95,14 +95,6 @@
 							</div>
 
 							<div class="col-sm-3">
-								<!-- INI GA DITAMPILIN KALO SUDAH LOGIN -->
-								<div class="card">
-									<div id="card" class="card-body text-left">
-										<div class="g-signin2" data-onsuccess="onSignIn"></div> <br>
-										<div class="btn btn-outline-secondary" onclick="signOut()">Logout</div>
-									</div>
-								</div>
-								<br>
 								<div class="card">
 									<div class="card-body">
 										<h5>Name</h5>
@@ -113,11 +105,28 @@
 								</div>
 
 								<br>
-								<div class="card">
+								<div class="card scrolling-card">
 									<div class="card-body">
 										<h5>Leaderboard</h5>
 										<hr class="my-2">
 										<!-- LOOP Leaderboards Score Here -->
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
+										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
 										<p><span class="text-leaderboardName">John Doe : <span class="text-leaderboardScore">920</span></p>
 									</div>
 								</div>
@@ -155,11 +164,99 @@
 		<!-- POST-GAME CONTENT -->
 		<div id="post-gamePage" class="container">
 			<div class="row justify-content-center align-items-center">
-				<div class="card p-3 ">
-					<p>Thank you <span id="text-postGame-name">#NAME</span> for playing</p>
-					<p>You got: <span id="text-postGame-correctCount">#CORRECT</span> out of 10 pictures</p>
+				<div class="card p-3 text-center">
+					<h4>Here's Your Result</h4>
+					<hr id="my-2">
+					<div id="wrapper-kumpulan-result" class="" style="margin-left:0 auto">
+						<!-- LOOP POSTGAME GOES HERE -->
+							<!-- ROW 1 -->
+						<div class="row align-items-center justify-content-center">
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-success">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-danger">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-success">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-danger">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-success">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+						
+						</div>
+						<br>
+							<!-- ROW 2 -->
+						<div class="row align-items-center justify-content-center">
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-success">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-danger">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-success">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-success">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-2" id="img-gameQuestion1">
+								<div class="card">
+									<div class="card-body postGame-imgWrapper bg-success">
+										<img src="/img/placeholder_small.jpg" width="100" height="100" class="img-fluid rounded img-postgame">
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- END HERE -->
+					</div>
+					<br>
+
 					<hr class="my-2">
-					<p>Your Score: <span id="text-postGame-score">#SCORE</span></p>
+					<p>Thank you <span id="text-postGame-name">#NAME</span> for playing</p>
+					<p>You got: <span id="text-postGame-correctCount">#CORRECT</span> out of 10 pictures Correct</p>
+					<hr class="my-2">
+					<p>Your Score:</p>
+					<h3 id="text-postGame-score">#SCORE</h3>
 				</div>
 			</div>
 		</div>
