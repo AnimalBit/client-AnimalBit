@@ -20,3 +20,22 @@ function gameStart() {
         })
     }
 }
+
+
+function getLeaderboard() {
+
+    return new Promise((resolve, reject) =>  {
+        $.ajax({
+            method: 'GET',
+            url : 'http://localhost:3000/users/'
+        })
+        .done(data => {
+            resolve(data)
+        })
+        .fail(err => {
+            reject(err)
+        })
+    })
+   
+
+}
