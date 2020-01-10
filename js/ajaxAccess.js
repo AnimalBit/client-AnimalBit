@@ -43,7 +43,7 @@ function submitAnswer(userChoices, gameQuestions) {
     return new Promise((resolve, reject) => {
         $.ajax({
             method: 'POST',
-            url: 'http://localhost:3000/users/game',
+            url: 'http://localhost:3000/matches',
             data :{ userChoices: userChoices, gameQuestions: gameQuestions}
         })
         .done(matchScore => {
