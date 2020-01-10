@@ -17,7 +17,8 @@ function onSignIn(googleUser) {
   }
 
   $(document).ready(function(){
-      getTest()
+    // to start the game, triggered by button start, hrs login & authenticated
+      gameStart()
         .then(result => {
             console.log(result)
         })
