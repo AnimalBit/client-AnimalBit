@@ -76,6 +76,64 @@ function onSignIn(googleUser) {
             .then( result => {
                 console.log(result)
                 // hasil score, di append ke div tampilan akhir
+                for (let i = 0; i < 5; i++) {
+                    if (result.stats[i] === true) {
+                        $('#postgame-row-1').append(
+                            `
+                            <div class="col-xl-2" id="img-gameQuestion${i+1}">
+                                <div class="card">
+                                    <div class="card-body postGame-imgWrapper bg-success">
+                                        <img src="${result.userQuestions[i].image}" width="100" height="100" class="img-fluid rounded img-postgame">
+                                        <p>Correct Answer: ${result.userQuestions[i].answer}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            `
+                        )
+                    } else {
+                        $('#postgame-row-1').append(
+                            `
+                            <div class="col-xl-2" id="img-gameQuestion${i+1}">
+                                <div class="card">
+                                    <div class="card-body postGame-imgWrapper bg-danger">
+                                        <img src="${result.userQuestions[i].image}" width="100" height="100" class="img-fluid rounded img-postgame">
+                                        <p>Correct Answer: ${result.userQuestions[i].answer}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            `
+                        ) 
+                    }
+                }
+                for (let i = 5; i < 10; i++) {
+                    if (result.stats[i] === true) {
+                        $('#postgame-row-2').append(
+                            `
+                            <div class="col-xl-2" id="img-gameQuestion${i+1}">
+                                <div class="card">
+                                    <div class="card-body postGame-imgWrapper bg-success">
+                                        <img src="${result.userQuestions[i].image}" width="100" height="100" class="img-fluid rounded img-postgame">
+                                        <p>Correct Answer: ${result.userQuestions[i].answer}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            `
+                        )
+                    } else {
+                        $('#postgame-row-2').append(
+                            `
+                            <div class="col-xl-2" id="img-gameQuestion${i+1}">
+                                <div class="card">
+                                    <div class="card-body postGame-imgWrapper bg-danger">
+                                        <img src="${result.userQuestions[i].image}" width="100" height="100" class="img-fluid rounded img-postgame">
+                                        <p>Correct Answer: ${result.userQuestions[i].answer}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            `
+                        )
+                    }
+                }
             })
             .catch(err => {
                 console.log(err)
