@@ -30,6 +30,8 @@ function onSignIn(googleUser) {
         .catch(err => {
             console.log(err)
         })
+
+
     // to start the game, triggered by button start, hrs login & authenticated
     //   gameStart()
     //     .then(result => {
@@ -39,4 +41,22 @@ function onSignIn(googleUser) {
     //         console.log(err)
     //     })
     
+
+    // submitAnswer, triggered setiap kali user pilih jawaban 
+    $('#idJawaban di formnya').click(function(event){
+        let answers = []
+        let choice = $('#idJawaban')
+        answers.push(choice)
+        if (answers.length === 10) {
+            submitAnswer(answers)
+            .then( result => {
+                console.log(result)
+                // hasil score, di append ke div tampilan akhir
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+    })
+            
   });
