@@ -17,5 +17,12 @@ function onSignIn(googleUser) {
   }
 
   $(document).ready(function(){
+      getTest()
+        .then(result => {
+            console.log(result)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     
   });
