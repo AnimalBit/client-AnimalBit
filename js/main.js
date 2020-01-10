@@ -9,9 +9,7 @@ function onSignIn(googleUser) {
       }
     })
     .done(data => {
-        console.log(data, '<<')
         localStorage.setItem('token', data.access_token)
-        console.log($("#gameContent") , "selector jquery")
         $("#loginPage").hide()
         $("#gameContent").show()
         getLeaderboard()

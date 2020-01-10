@@ -2,7 +2,16 @@ body{
   /* font-family: "Oswald", Helvetica, Arial, sans-serif; */
   /* font-family: 'Indie Flower', cursive; */
   font-family: 'Acme', sans-serif !important;
+  /* The image used */
+  background-image: url("https://cdn.hipwallpaper.com/i/83/89/Mbc8VS.png");
 
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .container, .row {
   height: 100%;
