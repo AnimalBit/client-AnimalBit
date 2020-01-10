@@ -39,12 +39,12 @@ function getLeaderboard() {
 }
 
 
-function submitAnswer(scoreArray) {
+function submitAnswer(userChoices, gameQuestions) {
     return new Promise((resolve, reject) => {
         $.ajax({
             method: 'POST',
             url: 'http://localhost:3000/users/game',
-            data : scoreArray,
+            data :{ userChoices: userChoices, gameQuestions: gameQuestions}
         })
         .done(matchScore => {
             resolve(matchScore)
