@@ -17,13 +17,26 @@ function onSignIn(googleUser) {
   }
 
   $(document).ready(function(){
-    // to start the game, triggered by button start, hrs login & authenticated
-      gameStart()
-        .then(result => {
-            console.log(result)
+    
+    // leaderboard tampil public, no need login, automatically ke display
+    getLeaderboard()
+        .then(userMatches => {
+            let totalAnswer
+            userMatches.forEach( match => {
+                totalAnswer += match.correctAnswers 
+                // lanjut append ke div leaderboard 
+            })
         })
         .catch(err => {
             console.log(err)
         })
+    // to start the game, triggered by button start, hrs login & authenticated
+    //   gameStart()
+    //     .then(result => {
+    //         console.log(result)
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //     })
     
   });
